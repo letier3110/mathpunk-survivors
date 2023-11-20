@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk351ts2utck5"]
+
+[ext_resource type="Script" path="res://Mob.cs" id="1_4pp5m"]
+[ext_resource type="Texture2D" uid="uid://546a7duhbjvb" path="res://art/enemy.png" id="1_hwqaq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kwbam"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hwqaq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ul8p8"]
+
+[node name="Mob" type="RigidBody2D"]
+gravity_scale = 2.66454e-15
+script = ExtResource("1_4pp5m")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.38419e-07, 0.656251)
+scale = Vector2(0.233824, 0.211015)
+sprite_frames = SubResource("SpriteFrames_kwbam")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ul8p8")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
