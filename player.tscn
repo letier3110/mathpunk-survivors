@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cwf4ghjph0vwc"]
 
-[ext_resource type="Script" path="res://player.cs" id="1_7fev5"]
+[ext_resource type="Script" path="res://Player.cs" id="1_7fev5"]
 [ext_resource type="Texture2D" uid="uid://crr02w50veand" path="res://art/hero_back.png" id="2_a345n"]
 [ext_resource type="Texture2D" uid="uid://dwskkrlrdnj5t" path="res://art/hero.png" id="3_8v2t5"]
 [ext_resource type="Texture2D" uid="uid://dptr0ajx1d8ie" path="res://art/hero_idle.png" id="4_qniol"]
@@ -36,6 +36,8 @@ animations = [{
 size = Vector2(8.5, 13.5)
 
 [node name="Player" type="Area2D"]
+position = Vector2(0, 17)
+scale = Vector2(3, 3)
 script = ExtResource("1_7fev5")
 metadata/_edit_group_ = true
 
@@ -43,10 +45,11 @@ metadata/_edit_group_ = true
 position = Vector2(4.23516e-22, -6.01562)
 scale = Vector2(0.0395115, 0.0389102)
 sprite_frames = SubResource("SpriteFrames_nbt1k")
-animation = &"idle"
+animation = &"back"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_i34cr")
+debug_color = Color(0.47451, 0.513726, 0.760784, 0.419608)
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]

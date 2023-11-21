@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class player : Area2D
+public partial class Player : Area2D
 {
 	[Signal]
 	public delegate void HitEventHandler();
@@ -73,7 +73,7 @@ public partial class player : Area2D
 			// See the note below about boolean assignment.
 			// animatedSprite2D.FlipH = velocity.X < 0;
 		}
-		else if (velocity.Y >= 0)
+		else if (velocity.Y > 0)
 		{
 			animatedSprite2D.Animation = "forward";
 			// animatedSprite2D.FlipV = velocity.Y > 0;
@@ -86,6 +86,7 @@ public partial class player : Area2D
 
 	public override void _Ready()
 	{
+		ScreenSize = GetViewportRect().Size;
 		Hide();
 	}
 }
