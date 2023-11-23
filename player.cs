@@ -37,14 +37,24 @@ public partial class Player : Area2D
 
 	public void Shoot()
 	{
-		if(this == null || Position == null) return;
-		var mob = GetNode<Main>("/root/Main").GetNode<Mob>("Mob");
-		if(mob == null) return;
-		Bullet b = Bullet.Instantiate<Bullet>(); // Assuming Bullet is a PackedScene reference
-		Owner.AddChild(b);
-		b.Transform = this.GlobalTransform;
-		var direction = (mob.Position - Position).Normalized();
-		b.Rotate(direction.Angle());
+		if(this == null) return;
+		try {
+			Godot.Collections.Array<Node> mobs = GetTree().GetNodesInGroup("mobs");
+			if(mobs.Count == 0) return;
+			var randomMob = GD.Randi() % mobs.Count;
+			var mob = mobs[(int)randomMob];
+			if(mob == null) return;
+			Bullet b = Bullet.Instantiate<Bullet>();
+			Owner.AddChild(b);
+			b.Transform = this.GlobalTransform;
+			var position = (Node2D)mob;
+			// GD.Print(position.Position);
+			// b.Transform.Scale = new Vector2(0.5f, 0.5f);
+			var direction = (position.Position - Position).Normalized();
+			b.Rotate(direction.Angle());
+		} catch (Exception e) {
+			GD.Print(e);
+		}
 	}
 
 
