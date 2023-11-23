@@ -15,7 +15,7 @@ script = ExtResource("1_oepf2")
 MobScene = ExtResource("2_3k12l")
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 0.2
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -36,3 +36,4 @@ position = Vector2(328, 432)
 
 [connection signal="timeout" from="MobTimer" to="." method="OnMobTimerTimeout"]
 [connection signal="timeout" from="StartTimer" to="." method="OnStartTimerTimeout"]
+[connection signal="Hit" from="Player" to="." method="GameOver"]

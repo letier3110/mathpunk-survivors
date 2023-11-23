@@ -7,16 +7,24 @@ public partial class Player : Area2D
 	public delegate void HitEventHandler();
 
 	[Export]
-	public int Speed { get; set; } = 400; // How fast the player will move (pixels/sec).
+	public int Speed { get; set; } = 400;
+	[Export]
+	public PackedScene Bullet { get; set; }
 
 	public Vector2 ScreenSize; // Size of the game window.
+
+	private void OnShootTimeout()
+	{
+		Shoot();
+	}
 
 	private void OnBodyEntered(Node2D body)
 	{
 		Hide(); // Player disappears after being hit.
 		EmitSignal(SignalName.Hit);
-		// Must be deferred as we can't change physics properties on a physics callback.
 		GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
+
+		GetNode<Timer>("ShootTimer").Stop();
 	}
 
 	public void Start(Vector2 position)
@@ -24,11 +32,29 @@ public partial class Player : Area2D
 		Position = position;
 		Show();
 		GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
+		GetNode<Timer>("ShootTimer").Start();
 	}
+
+	public void Shoot()
+	{
+		if(this == null || Position == null) return;
+		var mob = GetNode<Main>("/root/Main").GetNode<Mob>("Mob");
+		if(mob == null) return;
+		Bullet b = Bullet.Instantiate<Bullet>(); // Assuming Bullet is a PackedScene reference
+		Owner.AddChild(b);
+		b.Transform = this.GlobalTransform;
+		var direction = (mob.Position - Position).Normalized();
+		b.Rotate(direction.Angle());
+	}
+
 
 	public override void _Process(double delta)
 	{
 		var velocity = Vector2.Zero; // The player's movement vector.
+		// if (Input.IsActionPressed("shoot"))
+		// {
+		// 	Shoot();
+		// }
 
 		if (Input.IsActionPressed("move_right"))
 		{
