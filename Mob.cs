@@ -3,12 +3,12 @@ using System;
 
 public partial class Mob : RigidBody2D
 {
-
-	public void Die()
-	{
-		Hide();
-		QueueFree();
-	}
+	[Export]
+	public double MinMobSpeed { get; set; } = 40.0;
+	[Export]
+	public double MaxMobSpeed { get; set; } = 80.0;
+	[Export]
+	public double Damage { get; set; } = 2.0;
 
 	public override void _Ready()
 	{

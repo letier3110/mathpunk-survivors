@@ -21,17 +21,10 @@ public partial class Bullet : Area2D
 
 	private void OnBodyEntered(Node2D body)
 	{
-		// GD.Print("Collision detected");
-		// Hide(); 
-		// EmitSignal(SignalName.Hit);
-		// GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
-
-		// GetNode<Timer>("ShootTimer").Stop();
 		if (body.IsInGroup("mobs"))
 		{
 			body.QueueFree();
 		}
-		QueueFree();
 	}
 
 	private void OnVisibilityScreenExited()

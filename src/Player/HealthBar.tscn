@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://828u5ofxvvoy"]
+
+[ext_resource type="Texture2D" uid="uid://cwemxy0xuhch8" path="res://art/under.png" id="1_wjsiw"]
+[ext_resource type="Texture2D" uid="uid://ca6gsowphgoo3" path="res://art/over.png" id="2_rd0pb"]
+[ext_resource type="Texture2D" uid="uid://cmshmjb8vpmmd" path="res://art/progress.png" id="3_08dsc"]
+
+[node name="HealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 15.0
+value = 50.0
+texture_under = ExtResource("1_wjsiw")
+texture_over = ExtResource("2_rd0pb")
+texture_progress = ExtResource("3_08dsc")
+tint_progress = Color(1, 0, 0.333333, 1)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqxck14v24cf0"]
 
-[ext_resource type="PackedScene" uid="uid://cwf4ghjph0vwc" path="res://Player.tscn" id="1_0t7kj"]
 [ext_resource type="Script" path="res://Main.cs" id="1_oepf2"]
 [ext_resource type="PackedScene" uid="uid://dk351ts2utck5" path="res://Mob.tscn" id="2_3k12l"]
+[ext_resource type="PackedScene" uid="uid://cwf4ghjph0vwc" path="res://src/Player/Player.tscn" id="3_357k8"]
 
 [sub_resource type="Curve2D" id="Curve2D_fegxm"]
 _data = {
@@ -15,7 +15,7 @@ script = ExtResource("1_oepf2")
 MobScene = ExtResource("2_3k12l")
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.642
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -31,8 +31,8 @@ curve = SubResource("Curve2D_fegxm")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 
-[node name="Player" parent="." instance=ExtResource("1_0t7kj")]
-position = Vector2(328, 432)
+[node name="Player" parent="." instance=ExtResource("3_357k8")]
+position = Vector2(368, 400)
 
 [connection signal="timeout" from="MobTimer" to="." method="OnMobTimerTimeout"]
 [connection signal="timeout" from="StartTimer" to="." method="OnStartTimerTimeout"]
