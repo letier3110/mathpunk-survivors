@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://80u5evplvr0r"]
+
+[ext_resource type="Script" path="res://src/Weapons/Wand.cs" id="1_6e5mv"]
+[ext_resource type="PackedScene" uid="uid://c4aigwm85mqr8" path="res://src/Weapons/Bullet.tscn" id="2_ueyif"]
+
+[node name="Wand" type="Node"]
+script = ExtResource("1_6e5mv")
+Bullet = ExtResource("2_ueyif")
+
+[node name="ShootTimer" type="Timer" parent="."]

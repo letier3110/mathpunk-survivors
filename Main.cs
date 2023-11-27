@@ -21,6 +21,17 @@ public partial class Main : Node
 
 	private void OnMobTimerTimeout()
 	{
+		/*
+			NB
+			Instancing in Godot is handled using the MultiMeshInstance node. 
+			It's the instanced counterpart to MeshInstance. See 
+			[link: https://docs.godotengine.org/en/latest/tutorials/performance/using_multimesh.html ] Optimization 
+			using MultiMeshes in the documentation for more information.
+			Keep in mind MultiMeshes aren't suited if you need to move the objects in different 
+			directions every frame (although you can can achieve this by using INSTANCE_ID in a shader 
+			shared among all instances). MultiMeshInstance lets you change how many instances are visible 
+			by setting its visible_instance_count property.
+		*/
 		var player = GetNode<Player>("Player");
 		if(player == null) return;
 		Mob mob = MobScene.Instantiate<Mob>();
