@@ -47,6 +47,7 @@ public partial class Main : Node
 	public void GameOver()
 	{
 		GetNode<Timer>("MobTimer").Stop();
+		GetNode<GUI>("GUI").GameOver();
 		// GetNode<Timer>("ScoreTimer").Stop();
 	}
 
@@ -60,6 +61,7 @@ public partial class Main : Node
 		player.Start(startPosition.Position);
 
 		GetNode<Timer>("StartTimer").Start();
+		GetNode<GUI>("GUI").GameStart();
 	}
 
 	public override void _Ready()

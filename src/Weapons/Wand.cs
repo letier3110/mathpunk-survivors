@@ -38,23 +38,14 @@ public partial class Wand : Node
 
 	public void InitWand() {
 		Timer shootTimer = GetNodeOrNull<Timer>("ShootTimer");
-		var parentNode = GetChildren();
-		GD.Print(parentNode);
 		if (shootTimer == null) return;
 		shootTimer.WaitTime = 1 / ShootRate;
 		shootTimer.Timeout += OnShootTimeout;
-		// shootTimer.Connect("timeout", new Godot.Callable(this, nameof(OnShootTimeout)));
 		shootTimer.Start();
 	}
 	
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		InitWand();
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
 	}
 }
