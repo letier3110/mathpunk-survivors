@@ -1,3 +1,27 @@
-[gd_scene format=3 uid="uid://c0delxawasa62"]
+[gd_scene load_steps=3 format=3 uid="uid://c0delxawasa62"]
+
+[ext_resource type="Texture2D" uid="uid://cpbwfdpssfo6u" path="res://art/splash.png" id="1_2qi8n"]
+[ext_resource type="Script" path="res://src/UI/SplashBg.cs" id="1_ch4vd"]
 
 [node name="StartSplash" type="CanvasLayer"]
+
+[node name="Bg" type="BoxContainer" parent="."]
+offset_right = 500.0
+offset_bottom = 172.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ch4vd")
+
+[node name="ColorRect" type="ColorRect" parent="Bg"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Bg"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_2qi8n")
+expand_mode = 3
+stretch_mode = 4
