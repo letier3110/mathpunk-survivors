@@ -136,7 +136,7 @@ public partial class Player : Area2D
 
 	public void InitInventory()
 	{
-		var globalWand = GD.Load<PackedScene>("res://src/Weapons/Wand.tscn");
+		var globalWand = GD.Load<PackedScene>("res://scenes/Wand.tscn");
 		var wand = globalWand.Instantiate<Wand>();
 		AddChild(wand);
 	}

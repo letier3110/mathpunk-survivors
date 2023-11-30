@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dqxck14v24cf0"]
 
-[ext_resource type="Script" path="res://Main.cs" id="1_oepf2"]
-[ext_resource type="PackedScene" uid="uid://dk351ts2utck5" path="res://Mob.tscn" id="2_3k12l"]
-[ext_resource type="PackedScene" uid="uid://cwf4ghjph0vwc" path="res://src/Player/Player.tscn" id="3_357k8"]
-[ext_resource type="PackedScene" uid="uid://b1mmef4umned1" path="res://src/UI/GUI.tscn" id="4_h4vn6"]
+[ext_resource type="Script" path="res://src/Systems/MainGame.cs" id="1_ajklm"]
+[ext_resource type="PackedScene" uid="uid://dk351ts2utck5" path="res://scenes/Mob.tscn" id="2_mvm05"]
+[ext_resource type="PackedScene" uid="uid://cwf4ghjph0vwc" path="res://scenes/Player.tscn" id="3_oc2mv"]
+[ext_resource type="PackedScene" uid="uid://b1mmef4umned1" path="res://scenes/GUI.tscn" id="4_qfirw"]
 
 [sub_resource type="Curve2D" id="Curve2D_fegxm"]
 _data = {
@@ -12,8 +12,8 @@ _data = {
 point_count = 5
 
 [node name="Main" type="Node"]
-script = ExtResource("1_oepf2")
-MobScene = ExtResource("2_3k12l")
+script = ExtResource("1_ajklm")
+MobScene = ExtResource("2_mvm05")
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.642
@@ -32,10 +32,10 @@ curve = SubResource("Curve2D_fegxm")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 
-[node name="Player" parent="." instance=ExtResource("3_357k8")]
+[node name="Player" parent="." instance=ExtResource("3_oc2mv")]
 position = Vector2(368, 400)
 
-[node name="GUI" parent="." instance=ExtResource("4_h4vn6")]
+[node name="GUI" parent="." instance=ExtResource("4_qfirw")]
 
 [connection signal="timeout" from="MobTimer" to="." method="OnMobTimerTimeout"]
 [connection signal="timeout" from="StartTimer" to="." method="OnStartTimerTimeout"]

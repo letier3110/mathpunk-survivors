@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvvvskt56wgcb"]
+
+[ext_resource type="Script" path="res://src/Systems/MainProcess.cs" id="1_qdb7y"]
+[ext_resource type="PackedScene" uid="uid://c0delxawasa62" path="res://scenes/StartSplash.tscn" id="2_54c7j"]
+
+[node name="MainProcess" type="CanvasLayer"]
+script = ExtResource("1_qdb7y")
+
+[node name="StartSplash" parent="." instance=ExtResource("2_54c7j")]

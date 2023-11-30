@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Main : Node
+public partial class MainGame : Node
 {
 	// Called when the node enters the scene tree for the first time.
 	[Export]
@@ -66,7 +66,6 @@ public partial class Main : Node
 
 	public override void _Ready()
 	{
-		DisplayServer.WindowSetMode(DisplayServer.WindowMode.Fullscreen);
 		NewGame();
 	}
 }

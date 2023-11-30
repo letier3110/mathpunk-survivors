@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://crr02w50veand" path="res://art/hero_back.png" id="3_usrg7"]
 [ext_resource type="Texture2D" uid="uid://dwskkrlrdnj5t" path="res://art/hero.png" id="4_clm61"]
 [ext_resource type="Texture2D" uid="uid://dptr0ajx1d8ie" path="res://art/hero_idle.png" id="5_b2bb8"]
-[ext_resource type="PackedScene" uid="uid://828u5ofxvvoy" path="res://src/Player/HealthBar.tscn" id="7_pi6rp"]
+[ext_resource type="PackedScene" uid="uid://828u5ofxvvoy" path="res://scenes/HealthBar.tscn" id="7_pi6rp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nbt1k"]
 animations = [{
