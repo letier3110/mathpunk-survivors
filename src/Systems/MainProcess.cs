@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-public partial class MainProcess : CanvasLayer
+public partial class MainProcess : Node
 {
 	public static MainProcess Instance { get; private set; }
 	public ResourceLoader.ThreadLoadStatus LoadingStatus { get; set; }
@@ -11,7 +11,7 @@ public partial class MainProcess : CanvasLayer
 	private string _mainGameScenePath = "res://scenes/MainGame.tscn";
 	public override void _Ready()
 	{
-		DisplayServer.WindowSetMode(DisplayServer.WindowMode.Fullscreen);
+		// DisplayServer.WindowSetMode(DisplayServer.WindowMode.Fullscreen);
 		ChangeScene(_mainMenuScenePath);
 	}
 

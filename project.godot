@@ -12,14 +12,17 @@ config_version=5
 
 config/name="Mathpunk Survivoirs"
 run/main_scene="res://scenes/MainProcess.tscn"
-config/features=PackedStringArray("4.1", "C#", "Forward Plus")
+config/features=PackedStringArray("4.2", "C#", "Forward Plus")
+boot_splash/bg_color=Color(0, 0.14902, 0.254902, 1)
+boot_splash/image="res://art/splash.png"
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1024
-window/size/viewport_height=720
-window/stretch/mode="canvas_items"
+window/size/viewport_width=1280
+window/size/viewport_height=1024
+window/size/mode=3
+window/stretch/mode="viewport"
 
 [dotnet]
 

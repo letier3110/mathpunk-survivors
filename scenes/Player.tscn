@@ -36,7 +36,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i34cr"]
 size = Vector2(8.5, 13.5)
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(0, 17)
 scale = Vector2(3, 3)
 script = ExtResource("1_ym4cr")
@@ -58,4 +58,4 @@ offset_left = -5.0
 offset_right = -5.0
 scale = Vector2(0.1, 0.1)
 
-[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
+[node name="PlayerCamera2D" type="Camera2D" parent="."]

@@ -6,6 +6,8 @@ public partial class MainGame : Node
 	// Called when the node enters the scene tree for the first time.
 	[Export]
 	public PackedScene MobScene { get; set; }
+	public Boolean IsTerrainInitialized { get; set; } = false;
+
 	private int _score;
 
 	private void OnScoreTimerTimeout()
@@ -33,7 +35,7 @@ public partial class MainGame : Node
 			by setting its visible_instance_count property.
 		*/
 		var player = GetNode<Player>("Player");
-		if(player == null) return;
+		if (player == null) return;
 		Mob mob = MobScene.Instantiate<Mob>();
 		var mobSpawnLocation = GetNode<PathFollow2D>("MobPath/MobSpawnLocation");
 		mobSpawnLocation.ProgressRatio = GD.Randf();
@@ -62,6 +64,13 @@ public partial class MainGame : Node
 
 		GetNode<Timer>("StartTimer").Start();
 		GetNode<GUI>("GUI").GameStart();
+		// Engine.TimeScale = 0.1;
+		if (!IsTerrainInitialized)
+		{
+			IsTerrainInitialized = true;
+			var Terrain = ResourceLoader.Load<PackedScene>("res://scenes/Map.tscn");
+			// GetTree().Root.AddChild(Terrain.Instantiate());
+		}
 	}
 
 	public override void _Ready()

@@ -21,6 +21,9 @@ collision_layer = 3
 collision_mask = 0
 gravity_scale = 2.66454e-15
 script = ExtResource("1_21mox")
+MinMobSpeed = 400.0
+MaxMobSpeed = 800.0
+Damage = 10.0
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

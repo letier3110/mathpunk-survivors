@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqxck14v24cf0"]
+[gd_scene load_steps=7 format=3 uid="uid://dqxck14v24cf0"]
 
 [ext_resource type="Script" path="res://src/Systems/MainGame.cs" id="1_ajklm"]
 [ext_resource type="PackedScene" uid="uid://dk351ts2utck5" path="res://scenes/Mob.tscn" id="2_mvm05"]
 [ext_resource type="PackedScene" uid="uid://cwf4ghjph0vwc" path="res://scenes/Player.tscn" id="3_oc2mv"]
 [ext_resource type="PackedScene" uid="uid://b1mmef4umned1" path="res://scenes/GUI.tscn" id="4_qfirw"]
+[ext_resource type="PackedScene" uid="uid://clr2umijmaaj2" path="res://scenes/Map.tscn" id="5_6y4ak"]
 
 [sub_resource type="Curve2D" id="Curve2D_fegxm"]
 _data = {
@@ -34,8 +35,11 @@ curve = SubResource("Curve2D_fegxm")
 
 [node name="Player" parent="." instance=ExtResource("3_oc2mv")]
 position = Vector2(368, 400)
+up_direction = Vector2(-1, 1.04082e-12)
 
 [node name="GUI" parent="." instance=ExtResource("4_qfirw")]
+
+[node name="TileMap" parent="." instance=ExtResource("5_6y4ak")]
 
 [connection signal="timeout" from="MobTimer" to="." method="OnMobTimerTimeout"]
 [connection signal="timeout" from="StartTimer" to="." method="OnStartTimerTimeout"]
