@@ -15,7 +15,7 @@ public partial class MainProcess : Node
 		ChangeScene(_mainMenuScenePath);
 	}
 
-	public void ChangeScene(string scenePath, Boolean removeOldScene = false)
+	public void ChangeScene(string scenePath, bool removeOldScene = false)
 	{
 		GetNode<CanvasLayer>("StartSplash").Show();
 		if (removeOldScene && LatestNode != null)
