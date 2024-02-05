@@ -1,6 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://clr2umijmaaj2"]
 
-[ext_resource type="TileSet" uid="uid://bpn6snlpbusvk" path="res://tiles/Map.tres" id="1_2jmd4"]
+[sub_resource type="TileSet" id="TileSet_xg1ko"]
+tile_shape = 1
+tile_size = Vector2i(78, 36)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+terrain_set_1/mode = 0
 
 [node name="TileMap" type="Node"]
 
@@ -8,7 +14,7 @@
 z_index = -1
 y_sort_enabled = true
 position = Vector2(1, 0)
-tile_set = ExtResource("1_2jmd4")
+tile_set = SubResource("TileSet_xg1ko")
 format = 2
 layer_0/name = "0"
 layer_0/y_sort_enabled = true
