@@ -37,6 +37,7 @@ animations = [{
 size = Vector2(8.5, 13.5)
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 position = Vector2(0, 17)
 scale = Vector2(3, 3)
 script = ExtResource("1_ym4cr")

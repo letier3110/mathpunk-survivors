@@ -12,11 +12,12 @@ ROWS=$(expr $NUM_IMAGES / $COLS + 1)
 CANVAS=$(convert -size 0x0 xc:transparent PNG32:output.png)
 
 # 1. get all images from the provided path (directory)
-# 2. output them as a grid of images, each image resized to 100x100
-# 3. remove temp files
+# 2. sort them by name DESC
+# 3. output them as a grid of images, each image resized to 100x100
+# 4. remove temp files
 
 echo "output.png created"
-find $1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" -o -iname "*.bmp" -o -iname "*.tiff" \) -print0 | while read -d $'\0' file
+find $1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" -o -iname "*.bmp" -o -iname "*.tiff" \) -print0 | sort -z -r | while read -d $'\0' file
 do
   convert "$file" -resize 100x100^ -gravity center -background none -extent 100x100 PNG32:output.png +append -background none PNG32:output.png
 done

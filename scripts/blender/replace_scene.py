@@ -16,6 +16,7 @@ textures = [
   "dust_uv_1.png",
   "dust_uv_2.png",
   "dust_uv_3.png",
+  "water_uv.png",
 ]
 
 i = 1

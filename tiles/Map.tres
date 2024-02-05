@@ -1,8 +1,60 @@
-[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://bpn6snlpbusvk"]
+[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://bpn6snlpbusvk"]
 
 [ext_resource type="Texture2D" uid="uid://dlviotwa6eos8" path="res://atlas/output_tile.png" id="1_kaawn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0rr1o"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_pnwex"]
+vertices = PackedVector2Array(42, -28, -1, -8, -44, -29, 1, -47)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-43.7522, -28.903, 1.32582, -47.4645, 42.1612, -28.1959, -1.32583, -7.86656)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_n5ejg"]
+vertices = PackedVector2Array(43, -28, -1, -9, -43, -29, 1, -47)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-42.8684, -29.0798, 0.618713, -47.2878, 42.8683, -27.6656, -0.618721, -9.104)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_woqpc"]
+vertices = PackedVector2Array(43, -29, -1, -9, -43, -29, 1, -48)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-42.5148, -29.2565, 0.795494, -48.3484, 42.5148, -28.5494, -1.32583, -9.104)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_a5uxd"]
+vertices = PackedVector2Array(42, -29, -1, -9, -43, -29, 1, -48)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-42.6916, -29.0798, 0.972267, -48.1717, 42.338, -28.7262, -0.972275, -9.45755)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_cbexv"]
+vertices = PackedVector2Array(42, -29, -2, -11, -42, -29, 1, -49)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-42.1612, -29.0798, 0.972267, -48.5252, 41.9845, -28.5494, -1.67938, -10.8718)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="Shader" id="Shader_rr61j"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.2.stable.mono's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_46o6o"]
+shader = SubResource("Shader_rr61j")
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ydxol"]
+vertices = PackedVector2Array(43, -28, -1, -9, -43, -30, 1, -48)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-42.8684, -29.7869, 0.795494, -48.1717, 42.8683, -28.1959, -1.32583, -9.28078)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1t3ro"]
 resource_name = "new_tile"
@@ -11,21 +63,32 @@ texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-42.9375, -29.1875, 0.44194, -48.3484, 42.8683, -28.0191, -1.32583, -10.695)
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_pnwex")
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_n5ejg")
 2:0/0 = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_woqpc")
 3:0/0 = 0
 3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_a5uxd")
 4:0/0 = 0
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_cbexv")
 5:0/0 = 0
+5:0/0/material = SubResource("ShaderMaterial_46o6o")
 5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ydxol")
+6:0/0 = 0
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
 
 [resource]
 tile_shape = 1
@@ -36,6 +99,7 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_1/mode = 0
+navigation_layer_0/layers = 1
 custom_data_layer_0/name = "mob_spawn_type"
 custom_data_layer_0/type = 2
 sources/0 = SubResource("TileSetAtlasSource_1t3ro")
