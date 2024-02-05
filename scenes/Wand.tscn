@@ -5,6 +5,8 @@
 
 [node name="Wand" type="Node"]
 script = ExtResource("1_6e5mv")
+ShootRate = 0.1
 Bullet = ExtResource("2_ueyif")
 
 [node name="ShootTimer" type="Timer" parent="."]
+wait_time = 1.5

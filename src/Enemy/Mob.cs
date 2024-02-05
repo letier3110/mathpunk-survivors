@@ -4,9 +4,9 @@ using System;
 public partial class Mob : RigidBody2D
 {
 	[Export]
-	public double MinMobSpeed { get; set; } = 40.0;
+	public double MinMobSpeed { get; set; } = 10.0;
 	[Export]
-	public double MaxMobSpeed { get; set; } = 80.0;
+	public double MaxMobSpeed { get; set; } = 15.0;
 	[Export]
 	public double Damage { get; set; } = 2.0;
 

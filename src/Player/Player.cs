@@ -15,7 +15,7 @@ public partial class Player : CharacterBody2D
 	[Export]
 	public double RegenRate { get; set; } = 0.1;
 	[Export]
-	public int Speed { get; set; } = 400;
+	public int Speed { get; set; } = 100;
 
 	public Vector2 ScreenSize; // Size of the game window.
 
@@ -107,8 +107,8 @@ public partial class Player : CharacterBody2D
 		{
 			animatedSprite2D.Stop();
 		}
-		// Velocity = velocity;
-		Position += v * (float)delta;
+		Velocity = velocity;
+		// Position += v * (float)delta;
 		// Position += velocity * (float)delta;
 		// Position = new Vector2(
 		// 		x: Mathf.Clamp(Position.X, 0, ScreenSize.X),
@@ -130,6 +130,7 @@ public partial class Player : CharacterBody2D
 		{
 			animatedSprite2D.Animation = "idle";
 		}
+		MoveAndCollide(Velocity);
 	}
 
 	private void UpdatePlayerStats(double delta) {
@@ -139,12 +140,20 @@ public partial class Player : CharacterBody2D
 		}
 	}
 
+	public override void _PhysicsProcess(double delta)
+	{
+		// HandleInput(delta);
+		UpdateVelocity();
+		UpdatePlayerStats(delta);
+		// DrawHp();
+	}
+
 
 	public override void _Process(double delta)
 	{
 		HandleInput(delta);
-		UpdateVelocity();
-		UpdatePlayerStats(delta);
+		// UpdateVelocity();
+		// UpdatePlayerStats(delta);
 		DrawHp();
 	}
 

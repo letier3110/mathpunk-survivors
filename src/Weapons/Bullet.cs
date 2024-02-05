@@ -7,7 +7,7 @@ public partial class Bullet : Area2D
 	public delegate void HitEventHandler();
 
 	[Export]
-	private int Speed { get; set; } = 100;
+	private int Speed { get; set; } = 50;
 	// Called when the node enters the scene tree for the first time.
 	public override void _PhysicsProcess(double delta)
 	{

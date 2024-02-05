@@ -13,6 +13,9 @@ textures = [
   "grass_uv_example.png",
   "cube_uv_4.png",
   "dust_uv.png",
+  "dust_uv_1.png",
+  "dust_uv_2.png",
+  "dust_uv_3.png",
 ]
 
 i = 1
