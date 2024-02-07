@@ -133,6 +133,20 @@ public partial class Player : CharacterBody2D
 		MoveAndCollide(Velocity);
 	}
 
+	private void UpdateMobsDirection() {
+		Godot.Collections.Array<Node> mobs = GetTree().GetNodesInGroup("mobs");
+		if (mobs.Count == 0 || (Velocity.X == 0 && Velocity.Y == 0)) return;
+		foreach (Node mob in mobs)
+		{
+			if (mob == null) return;
+			Mob m = mob as Mob;
+			if (m == null) return;
+			var velocity = new Vector2((float)GD.RandRange(m.MinMobSpeed, m.MaxMobSpeed), 0);
+			var direction = (Position - m.Position).Normalized();
+			m.LinearVelocity = velocity.Rotated(direction.Angle());
+		}
+	}
+
 	private void UpdatePlayerStats(double delta) {
 		if (HitPoints < MaxHitPoints)
 		{
@@ -144,6 +158,7 @@ public partial class Player : CharacterBody2D
 	{
 		// HandleInput(delta);
 		UpdateVelocity();
+		UpdateMobsDirection();
 		UpdatePlayerStats(delta);
 		// DrawHp();
 	}
