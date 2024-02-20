@@ -40,7 +40,8 @@ public partial class MainGame : Node
 		var mobSpawnLocation = GetNode<PathFollow2D>("MobPath/MobSpawnLocation");
 		mobSpawnLocation.ProgressRatio = GD.Randf();
 		mob.Position = mobSpawnLocation.Position;
-		var velocity = new Vector2((float)GD.RandRange(mob.MinMobSpeed, mob.MaxMobSpeed), 0);
+		mob.ActualSpeed = (float)GD.RandRange(mob.MinMobSpeed, mob.MaxMobSpeed);
+		var velocity = new Vector2(mob.ActualSpeed, 0);
 		var direction = (player.Position - mob.Position).Normalized();
 		mob.LinearVelocity = velocity.Rotated(direction.Angle());
 		AddChild(mob);

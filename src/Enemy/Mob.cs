@@ -7,6 +7,7 @@ public partial class Mob : RigidBody2D
 	public double MinMobSpeed { get; set; } = 10.0;
 	[Export]
 	public double MaxMobSpeed { get; set; } = 15.0;
+	public float ActualSpeed { get; set; } = 0f;
 	[Export]
 	public double Damage { get; set; } = 2.0;
 
